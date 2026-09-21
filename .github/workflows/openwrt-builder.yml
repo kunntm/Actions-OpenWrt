@@ -61,6 +61,11 @@ jobs:
       run: |
         git clone --depth 1 https://github.com/muink/openwrt-rgmac.git openwrt/package/rgmac
         git clone --depth 1 https://github.com/muink/luci-app-change-mac.git openwrt/package/luci-app-change-mac
+
+    - name: Enable custom packages
+      run: |
+       echo "CONFIG_PACKAGE_rgmac=y" >> openwrt/.config
+       echo "CONFIG_PACKAGE_luci-app-change-mac=y" >> openwrt/.config
           
     - name: Load custom feeds
       run: |
